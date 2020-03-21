@@ -23,7 +23,7 @@ PROCEDURE CalcPoints(PurchasePrice:REAL)
   OUTPUT “Introduce the number of the loyalty card” 
   INPUT CardNumber 
   //the function is called to return the number of points in CardNumber
-  OldPoints ← CALL ReturnPoints(CardNumber) 
+  OldPoints ← ReturnPoints(CardNumber) 
   OUTPUT “Please, write Y if you want to use your points for a discount or N if not” 
   INPUT Choice 
   IF Choice = “Y” 
@@ -43,6 +43,8 @@ PROCEDURE CalcPoints(PurchasePrice:REAL)
       IF PurchasePrice > 20 
         THEN 
           NewPoints ← OldPoints + 2 
+        ELSE
+          NewPoints ← OldPoints
       ENDIF 
   ENDIF
   OUTPUT “The total amount of points accumulated in your loyalty card is”,NewPoints 
