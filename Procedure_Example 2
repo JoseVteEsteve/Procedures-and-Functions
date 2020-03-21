@@ -15,24 +15,27 @@ PROCEDURE CalcPoints(PurchasePrice:REAL)
   DECLARE NewPrice:REAL 
   DECLARE NewPoints:INTEGER 
   
+  //the function is declared at the beginning of the procedure, then it will be called 
   FUNCTION ReturnPoints(CardNum : STRING) RETURNS INTEGER
     RETURN Points 
   ENDFUNCTION 
 
   OUTPUT “Introduce the number of the loyalty card” 
   INPUT CardNumber 
+  //the function is called to return the number of points in CardNumber
   OldPoints ← CALL ReturnPoints(CardNumber) 
   OUTPUT “Please, write Y if you want to use your points for a discount or N if not” 
   INPUT Choice 
   IF Choice = “Y” 
     THEN 
       Discount ← OldPoints*1/100 
-      NewPrice ← OldPrice - Discount 
+      NewPrice ← OldPrice - Discount*OldPrice
       OUTPUT “The final price of the purchase is”,NewPrice 
     ELSE
       OUTPUT “The final price of the purchase is”,OldPrice 
   ENDIF 
   
+  //now, the user accumulates more points
   IF PurchasePrice > 50 
     THEN 
       NewPoints ← OldPoints + 5 
@@ -44,3 +47,7 @@ PROCEDURE CalcPoints(PurchasePrice:REAL)
   ENDIF
   OUTPUT “The total amount of points accumulated in your loyalty card is”,NewPoints 
 ENDPROCEDURE
+
+//the procedure is called
+INPUT Price
+CALL CalcPoints(Price)
