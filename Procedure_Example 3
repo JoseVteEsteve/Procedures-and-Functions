@@ -1,0 +1,46 @@
+//A store offers its customers a loyalty card with which they can accumulate points that can be exchanged for discounts on future purchases.
+//Create a function or procedure called CalcDiscount in which: 
+// ● calls a function called ReturnPoints(CardNum) that reads the card number and return the number of points the customer has stored on 
+it 
+// ● ask the customer if he wants to change it for a discount on the purchase knowing that each point is equivalent to a 1% discount. 
+//If the client does not want it, the points will accumulate and the new balance will appear on the screen. 
+// ● accumulate new points with each purchase you make knowing that: 
+//   ○ if the customer has spent more than 50 euros, he/she will accumulate 5 points 
+//   ○ if the customer has spent more than 20 euros, he/she will accumulate 2 points 
+//   ○ if the customer has spent the same or less than 20 euros, he/she will not accumulate any points 
+// ● ensure that the number of points stored after the purchase is displayed on the screen 
+
+PROCEDURE CalcPoints(PurchasePrice:REAL) 
+  DECLARE Choice:CHAR 
+  DECLARE NewPrice:REAL 
+  DECLARE NewPoints:INTEGER 
+  
+  FUNCTION ReturnPoints(CardNum : STRING) RETURNS INTEGER
+    RETURN Points 
+  ENDFUNCTION 
+
+  OUTPUT “Introduce the number of the loyalty card” 
+  INPUT CardNumber 
+  OldPoints ← CALL ReturnPoints(CardNumber) 
+  OUTPUT “Please, write Y if you want to use your points for a discount or N if not” 
+  INPUT Choice 
+  IF Choice = “Y” 
+    THEN 
+      Discount ← OldPoints*1/100 
+      NewPrice ← OldPrice - Discount 
+      OUTPUT “The final price of the purchase is”,NewPrice 
+    ELSE
+      OUTPUT “The final price of the purchase is”,OldPrice 
+  ENDIF 
+  
+  IF PurchasePrice > 50 
+    THEN 
+      NewPoints ← OldPoints + 5 
+    ELSE 
+      IF PurchasePrice > 20 
+        THEN 
+          NewPoints ← OldPoints + 2 
+      ENDIF 
+  ENDIF
+  OUTPUT “The total amount of points accumulated in your loyalty card is”,NewPoints 
+ENDPROCEDURE
