@@ -1,0 +1,38 @@
+//An electronics store is offering a new advertising campaign for its customers, called "inches per money". 
+//If a client wants to buy a new television and remove the old one, he can take it to this store and, depending on its size, 
+//he will be able to benefit from a discount. 
+//Create a function called DiscountCalc() that calculates the discount that the client is going to take for his new television 
+//and the total price to pay for the new television knowing that: 
+// - if the old television is 32 inches or less, the discount will be 2 euros per inch 
+// - if the old television is 43 inches or less, the discount will be 3 euros per inch 
+// - if the old television is more than 43 inches, the discount will be 5 euros per inch 
+
+FUNCTION DiscountCalc(Inches:INTEGER, Price:REAL) RETURNS REAL 
+  DECLARE Discount:REAL 
+  DECLARE FinalPrice:REAL 
+
+  IF Inches > 43 
+    THEN 
+      Discount = Price*5/100 
+    ELSE 
+      IF Inches >= 32 
+        THEN 
+          Discount = Price*3/100 
+        ELSE
+          Discount = Price*2/100
+      ENDIF 
+  ENDIF 
+  
+  PRINT "The discount applied has been",Discount
+  
+  FinalPrice = Price - Discount 
+  RETURN FinalPrice 
+ENDFUNCTION 
+
+//Calling the function when the user inputs the values (parameters of the function) 
+OUTPUT “Introduce the screen size of the old television, in inches:” 
+INPUT Size 
+OUTPUT “Introduce the price for the new television you want to buy” 
+INPUT Money 
+
+DiscountCalc(Size,Money) 
