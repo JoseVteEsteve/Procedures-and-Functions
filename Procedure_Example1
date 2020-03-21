@@ -1,5 +1,4 @@
-//A program to store the names of the students of a class needs to be done. 
-//Suppose that there are no students in the class. 
+//A program to store the names of the students of a class needs to be done. Suppose that there are no students in the class. 
 //Create a procedure to perform this action in Pseudocode
 
 PROCEDURE StoreStudentNames () 
