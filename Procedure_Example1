@@ -12,7 +12,7 @@ PROCEDURE StoreStudentNames ()
     OUTPUT “Introduce the name of the student:” 
     INPUT StudentName 
     StudentNames [i] ← StudentName 
-  NEXT i 
+  NEXT i //optional 
   ENDFOR 
   
   FOR i ← 1 TO NumberOfStudents
@@ -21,7 +21,7 @@ PROCEDURE StoreStudentNames ()
   ENDFOR
 ENDPROCEDURE 
 
-//now, the function is called
-CALL StoreStudentNames(n) 
+//now, the procedure is called
+CALL StoreStudentNames(28) 
 
 
