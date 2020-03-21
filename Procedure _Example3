@@ -1,0 +1,17 @@
+//A program must store the name, email and position of all of the employees of the company. 
+//The programmer has thought about to store this information in a 2D array in order to retrieve the information when needed. 
+//Create a program, function or procedure that will store this information in a bidimensional array. 
+
+DECLARE NumberOfEmployees:INTEGER 
+DECLARE i:INTEGER 
+DECLARE j:INTEGER 
+
+DECLARE Employees: ARRAY [1:NumberOfEmployees, 1:3] OF STRING 
+  FOR i ← TO NumberOfEmployees 
+    FOR j ← 1 TO 3 
+      OUTPUT “Input the following information (in order) for each one of the employees: Complete Name, Email and Position inside the company” 
+      Employees [i][j] ← INPUT 
+    NEXT j 
+    ENDFOR 
+  NEXT i 
+  ENDFOR 
