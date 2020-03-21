@@ -1,0 +1,28 @@
+//A program to store the names of the students of a class needs to be done. 
+//Suppose that there are no students in the class. 
+//Create a procedure to perform this action in Pseudocode
+
+PROCEDURE StoreStudentNames () 
+  DECLARE NumberOfStudents:INTEGER 
+  DECLARE StudentNames: ARRAY [1:N] OF STRING 
+  DECLARE StudentName:STRING 
+  
+  OUTPUT “Introduce the number of students in the class:” 
+  INPUT NumberOfStudents 
+  FOR i ← 1 TO NumberOfStudents 
+    OUTPUT “Introduce the name of the student:” 
+    INPUT StudentName 
+    StudentNames [i] ← StudentName 
+  NEXT i 
+  ENDFOR 
+  
+  FOR i ← 1 TO NumberOfStudents
+    OUTPUT StudentNames[i]
+  NEXT i
+  ENDFOR
+ENDPROCEDURE 
+
+//now, the function is called
+CALL StoreStudentNames(n) 
+
+
