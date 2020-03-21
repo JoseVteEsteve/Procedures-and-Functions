@@ -1,0 +1,34 @@
+//a function Search is going to be coded.
+//this function will returns the integer value corresponding to the first index in which InString begins inside String.
+
+FUNCTION Search(InString : STRING) RETURNS INTEGER
+  DECLARE NewString : STRING
+  DECLARE Index : INTEGER
+  DECLARE NextChar : CHAR
+  DECLARE Selected : INTEGER
+  DECLARE NewValue : INTEGER
+  NewString <-- '0'
+  Selected <-- 0
+  
+  //this code traverses the string from position 1 to position LENGTH(InsString)
+  FOR Index <-- 1 TO LENGTH(InString)
+    //this line obtains each character of the string
+    NextChar <-- MID(InString, Index, 1)
+    //if the character is not a number
+    IF NextChar < '0' OR NextChar > '9'
+      THEN
+        //this converts a '0' into a 0
+        NewValue <-- STRING_TO_NUM(NewString)
+        //if the numeric value is greater than zero
+        IF NewValue > Selected
+          THEN
+            Selected <-- NewValue
+            //selected now is the NewValue (it obtains the greatest value)
+        ENDIF
+        NewString <-- '0'
+      ELSE
+        NewString <-- NewString & NextChar
+      ENDIF
+  ENDFOR
+  RETURN Selected
+ENDFUNCTION
