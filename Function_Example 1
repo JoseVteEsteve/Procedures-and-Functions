@@ -13,13 +13,13 @@ FUNCTION DiscountCalc(Inches:INTEGER, Price:REAL) RETURNS REAL
 
   IF Inches > 43 
     THEN 
-      Discount = Price*5/100 
+      Discount = Price - 5*Inches 
     ELSE 
       IF Inches >= 32 
         THEN 
-          Discount = Price*3/100 
+          Discount = Price - 3*Inches
         ELSE
-          Discount = Price*2/100
+          Discount = Price - 2*Inches
       ENDIF 
   ENDIF 
   
